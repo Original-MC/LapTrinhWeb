@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiệu Sách Thành Phố Vinh - Gộp Trang</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <div class="figma-frame">
+        
+        <div class="navbar">
+            <div class="logo" onclick="switchPage('home')">
+                <img src="../assets/images/logo.png" 
+                     onerror="this.onerror=null; this.src='https://scontent.fvii2-4.fna.fbcdn.net/v/t1.15752-9/589794095_1566722731129168_2339922225129972205_n.png?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=IQ0feMSu5bQQ7kNvwG6TPD9&_nc_oc=Adl-cbwna_vKOCac38ziiQENKuV7WC4aqVVWAfQAlGlly0k9mI6FvU6y8nAyCess7KM&_nc_zt=23&_nc_ht=scontent.fvii2-4.fna&oh=03_Q7cD4AF6qpOs-xMc1cz4VuCkC-wPcPaHyNUmcHHsPBkIz1enpg&oe=695E332C';" 
+                     alt="Logo">
+                <div class="logo-text">
+                    Hiệu Sách<br><b>Thành Phố Vinh</b>
+                </div>
+            </div>
+
+            <div class="menu">
+                <a class="nav-link" data-page="home">Trang chủ</a>
+                <a class="nav-link" data-page="category">Danh mục</a>
+                <a class="nav-link" data-page="detail">Chi tiết sách</a>
+                <a class="nav-link" data-page="order">Đơn hàng</a>
+            </div>
+
+            <div class="search-group">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Tìm tên sách, tác giả...">
+                </div>
+                <div class="nav-icons">
+                    <i class="far fa-heart"></i>
+                    <i class="fas fa-shopping-bag"></i>
+                    <i class="far fa-user"></i>
+                </div>
+            </div>
+        </div>
+
+        <div id="home-page" class="page-content" style="display: none;">
+            
+            <div class="banner">
+                <h2>Chào mừng bạn đến với</h2>
+                <h1>Không gian văn hóa đọc<br>tại Thành Vinh</h1>
+                <p style="margin-bottom: 30px; font-size: 18px; max-width: 500px; color: #ecf0f1;">Khám phá hơn 10.000 đầu sách từ văn học kinh điển đến sách kinh tế, kỹ năng sống mới nhất.</p>
+                <a href="#" class="btn-primary" onclick="switchPage('detail')">Mua Sách Ngay</a>
+            </div>
+
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">Danh mục phổ biến</div>
+                    <a href="#" class="view-all">Xem tất cả <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <img src="../assets/images/truyen-tranh.avif" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80';" alt="Văn học">
+                        <div class="category-overlay"><span>Truyện Tranh</span></div>
+                    </div>
+                    <div class="category-card">
+                        <img src="../assets/images/kinh-te.jpg.jpg" onerror="this.onerror=null; this.src='https://tranduc.net/wp-content/uploads/2020/07/sach-kinh-te1-1280x960.jpg';" alt="Kinh tế">
+                        <div class="category-overlay"><span>Tiểu Thuyết</span></div>
+                    </div>
+                    <div class="category-card" onclick="switchPage('detail')">
+                        <div class="book-cover">
+                            <img src="../assets/images/thieu-nhi.webp.webp" onerror="this.onerror=null; this.src='https://bizweb.dktcdn.net/100/445/986/products/8936067602418-f00cfa1e-bdb0-40ec-8067-e3af4bfcf68a.jpg?v=1706586860823';" alt="Thiếu nhi">
+                        </div>
+                        <div class="category-overlay"><span>Sách Thiếu Nhi</span></div>
+                    </div>
+                    <div class="category-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/ngoai-ngu.jpg" onerror="this.onerror=null; this.src='https://newshop.vn/public/uploads/products/55054/sach-combo-primary-grammar-ngu-phap-tieng-anh-theo-chu-de-lop-4-tap-1-2-bo-2-cuon_FB.jpg';" alt="Ngoại ngữ">
+                        </div>
+                        <div class="category-overlay"><span>Sách Ngoại Ngữ</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" style="background: #fff;">
+                <div class="section-header">
+                    <div class="section-title">Sách bán chạy tháng này</div>
+                    <a href="#" class="view-all">Xem bảng xếp hạng</a>
+                </div>
+                <div class="book-grid">
+                    <div class="book-card" onclick="switchPage('detail')">
+                        <div class="book-cover">
+                            <img src="../assets/images/promo-img.jpg.jpg" onerror="this.onerror=null; this.src='https://toplist.vn/images/800px/nha-gia-kim-paulo-coelho-4777.jpg';" alt="Nhà Giả Kim">
+                        </div>
+                        <div class="book-title">Nhà Giả Kim</div>
+                        <div class="book-author">Paulo Coelho</div>
+                        <div class="book-price">79.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/dac-nhan-tam.webp.webp" onerror="this.onerror=null; this.src='https://cdn.shopify.com/s/files/1/0738/5255/1445/products/8f3fb57b222256eb39a6cd3962ec7939_6b7859bf-b294-40af-9e32-73ee1e107681.png?v=1681874022';" alt="Đắc Nhân Tâm">
+                        </div>
+                        <div class="book-title">Đắc Nhân Tâm</div>
+                        <div class="book-author">Dale Carnegie</div>
+                        <div class="book-price">86.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/tuoi-tre-dang-gia.jpg.jpg" onerror="this.onerror=null; this.src='https://dtv-ebook.com.vn/images/cover_1/tuoi-tre-dang-gia-bao-nhieu-rosie-nguyen.jpg';" alt="Tuổi Trẻ Đáng Giá Bao Nhiêu">
+                        </div>
+                        <div class="book-title">Tuổi Trẻ Đáng Giá Bao Nhiêu</div>
+                        <div class="book-author">Rosie Nguyễn</div>
+                        <div class="book-price">72.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/cay-cam-ngot.jpg" onerror="this.onerror=null; this.src='https://genbooks.net/wp-content/uploads/2022/10/cay-cam-ngot-cua-toi.jpg';" alt="Cây Cam Ngọt Của Tôi">
+                        </div>
+                        <div class="book-title">Cây Cam Ngọt Của Tôi</div>
+                        <div class="book-author">José Mauro de Vasconcelos</div>
+                        <div class="book-price">108.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/de-men.jpg" onerror="this.onerror=null; this.src='https://img1.kienthucvui.vn/uploads/2021/06/04/anh-nhan-vat-de-men-phieu-luu-ky-to-hoai_061036412.jpg';" alt="Dế Mèn Phiêu Lưu Ký">
+                        </div>
+                        <div class="book-title">Dế Mèn Phiêu Lưu Ký</div>
+                        <div class="book-author">Tô Hoài</div>
+                        <div class="book-price">55.000đ</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="promo-section">
+                <div class="promo-content">
+                    <h2>Hội Sách Mùa Thu <br>Giảm tới 50%</h2>
+                    <p style="font-size: 18px; line-height: 1.6; margin-bottom: 30px; color: #555;">
+                        Chương trình khuyến mãi đặc biệt dành cho các đầu sách văn học và kỹ năng sống. Tặng kèm bookmark xinh xắn cho mỗi đơn hàng.
+                    </p>
+                    <a href="#" class="btn-primary" onclick="switchPage('detail')">Săn Deal Ngay</a>
+                </div>
+                <div class="promo-image">
+                    <img src="../assets/images/promo-img.jpg.jpg" onerror="this.onerror=null; this.src='https://sachxua.vn/wp-content/uploads/2020/01/sach-nha-gia-kim.jpg';" alt="Promo">
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">Sách mới về</div>
+                </div>
+                <div class="book-grid">
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/harry-potter.gif.gif" onerror="this.onerror=null; this.src='https://cungdocsach.vn/wp-content/uploads/2019/10/Harry-potter-v%C3%A0-h%C3%B2n-%C4%91%C3%A1-ph%C3%B9-th%E1%BB%A3y.gif';" alt="Harry Potter">
+                        </div>
+                        <div class="book-title">Harry Potter và Hòn Đá Phù Thủy</div>
+                        <div class="book-author">J.K. Rowling</div>
+                        <div class="book-price">150.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/hoang-tu-be.jpg.jpg" onerror="this.onerror=null; this.src='https://thuvienonline.org/wp-content/uploads/2021/01/hoang-tu-be-Antoine-De-Saint-Exupery.jpg';" alt="Hoàng Tử Bé">
+                        </div>
+                        <div class="book-title">Hoàng Tử Bé</div>
+                        <div class="book-author">Antoine de Saint-Exupéry</div>
+                        <div class="book-price">45.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/mat-biec.webp" onerror="this.onerror=null; this.src='https://tse2.mm.bing.net/th/id/OIP.tZgqf0Ls5JuV3yx6Tk6lKgHaJl?rs=1&pid=ImgDetMain&o=7&rm=3';" alt="Mắt Biếc">
+                        </div>
+                        <div class="book-title">Mắt Biếc</div>
+                        <div class="book-author">Nguyễn Nhật Ánh</div>
+                        <div class="book-price">110.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/rung-na-uy.png" onerror="this.onerror=null; this.src='https://ebookvie.com/wp-content/uploads/2024/01/Rung-Na-Uy-Haruki-Murakami.png';" alt="Rừng Na Uy">
+                        </div>
+                        <div class="book-title">Rừng Na Uy</div>
+                        <div class="book-author">Haruki Murakami</div>
+                        <div class="book-price">135.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/hai-so-phan.webp" onerror="this.onerror=null; this.src='https://bizweb.dktcdn.net/100/370/339/products/hai-so-phan.jpg?v=1611676664730';" alt="Hai Số Phận">
+                        </div>
+                        <div class="book-title">Hai Số Phận</div>
+                        <div class="book-author">Jeffrey Archer</div>
+                        <div class="book-price">180.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/tat-den.webp" onerror="this.onerror=null; this.src='https://tse2.mm.bing.net/th/id/OIP.uCrmSGLNtgY6jyNi3nQWpQDTEs?rs=1&pid=ImgDetMain&o=7&rm=3';" alt="Tắt Đèn">
+                        </div>
+                        <div class="book-title">Tắt Đèn</div>
+                        <div class="book-author">Ngô Tất Tố</div>
+                        <div class="book-price">40.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/so-do.webp" onerror="this.onerror=null; this.src='https://tse2.mm.bing.net/th/id/OIP.-A8ua7WH1Du8PXJBJFI2GQAAAA?w=295&h=475&rs=1&pid=ImgDetMain&o=7&rm=3';" alt="Số Đỏ">
+                        </div>
+                        <div class="book-title">Số Đỏ</div>
+                        <div class="book-author">Vũ Trọng Phụng</div>
+                        <div class="book-price">50.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/ong-gia-bien-ca.jpg" onerror="this.onerror=null; this.src='https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1483663078i/25221793.jpg';" alt="Ông Già Và Biển Cả">
+                        </div>
+                        <div class="book-title">Ông Già Và Biển Cả</div>
+                        <div class="book-author">Ernest Hemingway</div>
+                        <div class="book-price">65.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/chien-binh-cau-vong.jpg" onerror="this.onerror=null; this.src='https://nhungcuonsachhay.com/wp-content/uploads/2021/09/Chien-Binh-Cau-Vong-Andrea-Hirata.jpg';" alt="Chiến Binh Cầu Vồng">
+                        </div>
+                        <div class="book-title">Chiến Binh Cầu Vồng</div>
+                        <div class="book-author">Andrea Hirata</div>
+                        <div class="book-price">99.000đ</div>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="../assets/images/nguoi-dua-dieu.jpg" onerror="this.onerror=null; this.src='https://thuvienonline.org/wp-content/uploads/2022/10/nguoi-dua-dieu-khaled-hosseini.jpg';" alt="Người Đua Diều">
+                        </div>
+                        <div class="book-title">Người Đua Diều</div>
+                        <div class="book-author">Khaled Hosseini</div>
+                        <div class="book-price">115.000đ</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" style="background: #f9f9f9;">
+                <div class="section-header">
+                    <div class="section-title">Góc Đọc Sách</div>
+                </div>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <img src="../assets/images/blog-1.avif.avif" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80';" alt="Blog 1">
+                        <div class="blog-date">8 Tháng 12, 2025</div>
+                        <div class="blog-title">Top 10 cuốn sách phải đọc trước tuổi 20</div>
+                    </div>
+                    <div class="blog-card">
+                        <img src="../assets/images/blog-2.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80';" alt="Blog 2">
+                        <div class="blog-date">06 Tháng 12, 2025</div>
+                        <div class="blog-title">Lợi ích bất ngờ của việc đọc sách mỗi ngày</div>
+                    </div>
+                    <div class="blog-card">
+                        <img src="../assets/images/blog-3.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=800&q=80';" alt="Blog 3">
+                        <div class="blog-date">01 Tháng 12, 2025</div>
+                        <div class="blog-title">Gặp gỡ tác giả Tố Hữu tại Vinh</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="extended-content-section">
+                <div class="section-header" style="margin-bottom: 20px;">
+                    <div class="section-title">Sách Giáo Khoa</div>
+                </div>
+                
+                <div class="school-section-banner">
+                    <div class="school-section-banner-overlay">
+                        <h2>Học Kỳ Mới, Tri Thức Mới</h2>
+                        <p style="font-size: 20px; font-weight: 500;">
+                            Khai Xuân Giảm 20% toàn bộ sách giáo khoa và dụng cụ học tập.
+                        </p>
+                        <a href="#" class="btn-primary" style="margin: 25px auto 0 auto;">Tìm Mua Ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="detail-page" class="page-content" style="display: none;">
+            
+            <div class="detail-page-container">
+                <div class="breadcrumb">
+                    <span onclick="switchPage('home')">Trang chủ</span> /
+                    <a href="#">Văn Học</a> /
+                    <span>Nhà Giả Kim</span>
+                </div>
+
+                <div class="product-detail-layout">
+                    <div class="product-images">
+                        <img src="../assets/images/promo-img.jpg.jpg" alt="Bìa sách Nhà Giả Kim" class="main-image" onerror="this.onerror=null; this.src='https://toplist.vn/images/800px/nha-gia-kim-paulo-coelho-4777.jpg';">
+                    </div>
+
+                    <div class="product-info">
+                        <p style="color: #d35400; font-weight: 600; margin-bottom: 5px;">Sách Văn Học Kinh Điển</p>
+                        <h1>Nhà Giả Kim (The Alchemist)</h1>
+                        <div class="author">Tác giả: **Paulo Coelho**</div>
+
+                        <div style="color: #f1c40f; font-size: 16px; margin-bottom: 20px;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span style="color: #777; font-size: 14px; margin-left: 10px;">(2,500 đánh giá)</span>
+                        </div>
+
+                        <div class="price-group">
+                            <span class="old-price">99.000đ</span>
+                            <span class="current-price">79.000đ</span>
+                        </div>
+
+                        <p style="color: #555; line-height: 1.6;">
+                            Cuốn tiểu thuyết triết học nổi tiếng toàn cầu của nhà văn Brazil Paulo Coelho. Câu chuyện kể về hành trình đi tìm kho báu của chàng chăn cừu Santiago, nhưng thực chất là hành trình khám phá và theo đuổi **Ước Mơ Cá Nhân** của mỗi người.
+                        </p>
+
+                        <div style="margin-top: 20px;">
+                            <label for="quantity" style="font-weight: 600; margin-right: 15px;">Số lượng:</label>
+                            <div class="quantity-control" style="display: inline-flex;">
+                                <button type="button" onclick="document.getElementById('quantity').stepDown()">-</button>
+                                <input type="number" id="quantity" name="quantity" value="1" min="1" max="100">
+                                <button type="button" onclick="document.getElementById('quantity').stepUp()">+</button>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <a href="#" class="btn-primary">
+                                <i class="fas fa-shopping-bag" style="margin-right: 8px;"></i> Thêm vào giỏ
+                            </a>
+                            <a href="#" class="btn-secondary">
+                                Mua ngay
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-tabs">
+                    <div class="tab-list">
+                        <div class="tab-item" id="tab-description" onclick="showDetailTab('description')">Mô tả chi tiết</div>
+                        <div class="tab-item" id="tab-specs" onclick="showDetailTab('specs')">Thông số kỹ thuật</div>
+                        <div class="tab-item" id="tab-review" onclick="showDetailTab('review')">Bình luận (2,500)</div>
+                    </div>
+
+                    <div id="description-content" class="tab-content" style="display: none;">
+                        <p>
+                            **Nhà Giả Kim** đã truyền cảm hứng cho hàng triệu độc giả trên khắp thế giới. Sách được viết theo phong cách cổ tích, huyền ảo, nhưng chứa đựng thông điệp sâu sắc về cuộc sống, số phận và ý chí con người.
+                        </p>
+                        <p>
+                            Thông điệp chính của tác phẩm là: "Khi bạn thực sự mong muốn điều gì, cả vũ trụ sẽ hợp lực giúp bạn đạt được điều đó." Đây là một tác phẩm không thể thiếu trong tủ sách của những người đang trên hành trình khám phá bản thân và theo đuổi đam mê.
+                        </p>
+                    </div>
+
+                    <div id="specs-content" class="tab-content" style="display: none;">
+                        <table class="specs-table">
+                            <tr><td>Tên sách</td><td>Nhà Giả Kim</td></tr>
+                            <tr><td>Tác giả</td><td>Paulo Coelho</td></tr>
+                            <tr><td>Dịch giả</td><td>Lê Chu Cầu</td></tr>
+                            <tr><td>Nhà xuất bản</td><td>NXB Văn Học</td></tr>
+                            <tr><td>Năm xuất bản</td><td>2024 (Tái bản)</td></tr>
+                            <tr><td>Loại bìa</td><td>Bìa Mềm</td></tr>
+                            <tr><td>Số trang</td><td>240 trang</td></tr>
+                            <tr><td>Kích thước</td><td>13 x 20.5 cm</td></tr>
+                        </table>
+                    </div>
+
+                    <div id="review-content" class="tab-content" style="display: none;">
+                        <p style="font-weight: 600;">Ghi chú: Đây là khu vực hiển thị bình luận của khách hàng.</p>
+                        <div style="border: 1px solid #eee; padding: 15px; margin-bottom: 15px; border-radius: 8px;">
+                            <p style="font-weight: 600;">Nguyễn Văn A</p>
+                            <p style="color: #f1c40f;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                            <p>Một cuốn sách hay, truyền động lực mạnh mẽ!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                        <img src="../assets/images/logo.png" style="height: 40px; background: white; border-radius: 5px; padding: 2px;" onerror="this.onerror=null; this.src='https://scontent.fvii2-4.fna.fbcdn.net/v/t1.15752-9/589794095_1566722731129168_2339922225129972205_n.png?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=IQ0feMSu5bQQ7kNvwG6TPD9&_nc_oc=Adl-cbwna_vKOCac38ziiQENKuV7WC4aqVVWAfQAlGlly0k9mI6FvU6y8nAyCess7KM&_nc_zt=23&_nc_ht=scontent.fvii2-4.fna&oh=03_Q7cD4AF6qpOs-xMc1cz4VuCkC-wPcPaHyNUmcHHsPBkIz1enpg&oe=695E332C';" alt="Logo">
+                        <span style="font-size: 20px; font-weight: bold; font-family: 'Playfair Display', serif;">Hiệu Sách TP Vinh</span>
+                    </div>
+                    <p style="color: #bdc3c7; line-height: 1.6;">
+                        Nơi lan tỏa tri thức và văn hóa đọc đến mọi người dân thành phố Vinh. Chúng tôi cam kết cung cấp sách thật, giá trị thật.
+                    </p>
+                    <div style="margin-top: 20px; display: flex; gap: 15px;">
+                        <i class="fab fa-facebook fa-lg"></i>
+                        <i class="fab fa-instagram fa-lg"></i>
+                        <i class="fab fa-tiktok fa-lg"></i>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Về Chúng Tôi</h3>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Hệ thống cửa hàng</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Chính Sách</h3>
+                    <ul>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Giao hàng & Thanh toán</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Hỗ Trợ</h3>
+                    <ul>
+                        <li><a href="#">Hotline: 1900 2567</a></li>
+                        <li><a href="#">Email: support@sachvinh.vn</a></li>
+                        <li><a href="#">Tra cứu đơn hàng</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Hiệu Sách Thành Phố Vinh. All rights reserved. Design Mockup.
+            </div>
+        </footer>
+    </div>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
