@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sách: </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="figma-frame">
+        <div class="navbar">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="Logo">
+                <div class="logo-text">Hiệu Sách<br><b>Thành Phố Vinh</b></div>
+            </div>
+            <div class="menu">
+                <a href="#">Trang chủ</a>
+                <a href="#">Danh mục</a>
+                <a href="#" class="active">Chi tiết sách</a>
+                <a href="#">Đơn hàng</a>
+            </div>
+            <div class="search-group">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Tìm tên sách, tác giả...">
+                </div>
+                <div class="nav-icons">
+                    <i class="far fa-heart"></i>
+                    <i class="fas fa-shopping-bag"></i>
+                    <i class="far fa-user"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="#">Trang chủ</a> / <a href="#">Âm Nhạc - Mỹ Thuật</a> / <span>Tôi Vẽ</span>
+        </div>
+
+        <div class="product-detail-container">
+    <div class="product-images">
+        <img id="book-img" src="images/logo.png" alt="Đang tải ảnh..." class="main-image">
+    </div>
+
+    <div class="product-info">
+        <p id="book-category" class="category-highlight" style="color: #d35400; font-weight: 600;">Đang tải danh mục...</p>
+        
+        <h1 id="book-title" style="font-family: 'Playfair Display', serif; font-size: 38px;">Đang tải tên sách...</h1>
+        
+        <div id="book-author" class="author" style="margin-bottom: 20px;">Đang tải tác giả...</div>
+
+        <div class="rating-stars" style="color: #f1c40f; margin-bottom: 20px;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span class="rating-count" style="color: #777;">(Đánh giá tích cực)</span>
+        </div>
+
+        <div class="price-group" style="display: flex; gap: 15px; align-items: baseline; margin-bottom: 20px;">
+            <span id="price-old" class="old-price" style="text-decoration: line-through; color: #999; font-size: 20px;"></span>
+            <span id="price-new" class="current-price" style="color: #d35400; font-size: 40px; font-weight: 700;"></span>
+        </div>
+
+        <p id="book-desc" class="product-short-desc" style="line-height: 1.6; color: #555;">
+            Đang tải mô tả...
+        </p>
+
+        <div class="quantity-selector" style="margin-top: 30px;">
+            <label>Số lượng:</label>
+            <div class="quantity-control" style="display: inline-flex; border: 1px solid #ccc; margin-left: 10px;">
+                <button type="button" id="minus-btn" style="padding: 5px 15px;">-</button>
+                <input type="number" id="quantity" value="1" min="1" style="width: 50px; text-align: center; border: none;">
+                <button type="button" id="plus-btn" style="padding: 5px 15px;">+</button>
+            </div>
+        </div>
+
+        <div class="action-buttons" style="margin-top: 30px; display: flex; gap: 20px;">
+            <a href="#" class="btn-primary" style="padding: 15px 30px; background: #d35400; color: white; text-decoration: none; border-radius: 5px;">Thêm vào giỏ</a>
+            <a href="#" class="btn-secondary" style="padding: 15px 30px; background: #f1c40f; color: black; text-decoration: none; border-radius: 5px;">Mua ngay</a>
+        </div>
+    </div>
+</div>
+
+        <div class="product-tabs">
+    <div class="tab-list">
+        <div class="tab-item active" data-tab="description">Mô tả chi tiết</div>
+        <div class="tab-item" data-tab="specs">Thông số kỹ thuật</div>
+        <div class="tab-item" data-tab="review">Bình luận</div>
+    </div>
+
+    <div id="description-content" class="tab-content" style="display: block;">
+        <div id="tab-desc-render" style="line-height: 1.8; color: #444;">
+            Đang tải mô tả chi tiết...
+        </div>
+    </div>
+
+    <div id="specs-content" class="tab-content" style="display: none;">
+        <table class="specs-table">
+            <tbody id="tab-specs-render">
+                </tbody>
+        </table>
+    </div>
+
+    <div id="review-content" class="tab-content" style="display: none;">
+        <div id="tab-reviews-render">
+             </div>
+    </div>
+</div>
+
+<footer>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                        <img src="../assets/images/logo.png" style="height: 40px; background: white; border-radius: 5px; padding: 2px;" onerror="this.onerror=null; this.src='https://scontent.fvii2-4.fna.fbcdn.net/v/t1.15752-9/589794095_1566722731129168_2339922225129972205_n.png?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=Z_QT_TGvM3IQ7kNvwHy5f8F&_nc_oc=AdmhviYNV1TiJEwglR2N8APq-b6SQr_DZBQsa6OIWx858O3ErRFrPn2T3rKVQW0xSRg&_nc_zt=23&_nc_ht=scontent.fvii2-4.fna&oh=03_Q7cD4AHVDlxAeablYcbIYNMBPzaPIKNheC-qhHddG6zspROHqA&oe=69676DAC';" alt="Logo">
+                        <span style="font-size: 20px; font-weight: bold; font-family: 'Playfair Display', serif;">Hiệu Sách TP Vinh</span>
+                    </div>
+                    <p style="color: #bdc3c7; line-height: 1.6;">
+                        Nơi lan tỏa tri thức và văn hóa đọc đến mọi người dân thành phố Vinh. Chúng tôi cam kết cung cấp sách thật, giá trị thật.
+                    </p>
+                    <div style="margin-top: 20px; display: flex; gap: 15px;">
+                        <i class="fab fa-facebook fa-lg"></i>
+                        <i class="fab fa-instagram fa-lg"></i>
+                        <i class="fab fa-tiktok fa-lg"></i>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Về Chúng Tôi</h3>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Hệ thống cửa hàng</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Chính Sách</h3>
+                    <ul>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Giao hàng & Thanh toán</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Hỗ Trợ</h3>
+                    <ul>
+                        <li><a href="#">Hotline: 1900 2567</a></li>
+                        <li><a href="#">Email: support@sachvinh.vn</a></li>
+                        <li><a href="#">Tra cứu đơn hàng</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Hiệu Sách Thành Phố Vinh. All rights reserved. Design Mockup.
+            </div>
+        </footer>
+    </div>
+    
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

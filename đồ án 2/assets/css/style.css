@@ -1,0 +1,296 @@
+/* --- TOÀN BỘ CSS TỪ FILE GỐC CỦA BẠN --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background-color: #F2F2F2; color: #1a1a1a; display: flex; justify-content: center; padding: 20px 0; }
+
+.figma-frame { 
+    width: 100%;        /* Sửa thành 100% để không bị thanh cuộn ngang */
+    max-width: 1440px;  /* Giới hạn chiều rộng tối đa cho đẹp */
+    min-height: 100vh;  /* Ít nhất là cao bằng màn hình (để không bị hụt nếu ít nội dung) */
+    height: auto;       /* Quan trọng: Tự động dài ra theo nội dung */
+    background: #ffffff; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.1); 
+    position: relative; 
+    /* overflow: hidden; <--- XÓA DÒNG NÀY ĐI (để menu xổ xuống không bị che) */
+    margin: 0 auto;     /* Căn giữa trang web */
+}
+/* --- NAVBAR --- */
+.navbar { width: 100%; height: 100px; background: white; padding: 0 120px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eeeeee; position: sticky; top: 0; z-index: 1000; }
+.nav-logo-img { height: 45px; object-fit: contain; }
+.logo-text { font-family: 'Playfair Display', serif; font-size: 20px; color: #2c3e50; line-height: 1.2; font-weight: 700; }
+.menu { display: flex; gap: 40px; align-items: center; flex-grow: 1; justify-content: center; }
+.menu a { text-decoration: none; font-size: 16px; color: #555; font-weight: 500; position: relative; padding-bottom: 10px; transition: 0.3s; }
+.menu a:hover, .menu a.active { color: #d35400; }
+.menu a.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: #d35400; }
+
+/* --- SEARCH & ICONS --- */
+.search-group { display: flex; align-items: center; gap: 20px; }
+.search-box { display: flex; align-items: center; background: #f8f9fa; padding: 10px 20px; border-radius: 50px; border: 1px solid #e0e0e0; width: 250px; }
+.search-box input { border: none; outline: none; background: transparent; font-size: 14px; width: 100%; }
+.nav-icons { display: flex; gap: 20px; }
+.nav-icons i { font-size: 20px; color: #333; cursor: pointer; }
+
+/* --- PRODUCT DETAIL --- */
+.breadcrumb { padding: 20px 120px 0; font-size: 14px; color: #777; }
+.breadcrumb a { text-decoration: none; color: #555; }
+.product-detail-container { padding: 40px 120px 80px; display: flex; gap: 60px; }
+.main-image { width: 100%; height: 500px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.category-highlight { color: #d35400; font-weight: 600; margin-bottom: 5px; }
+.product-info h1 { font-family: 'Playfair Display', serif; font-size: 38px; color: #2c3e50; margin-bottom: 10px; }
+.author { font-size: 18px; color: #d35400; font-weight: 500; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+.rating-stars { color: #f1c40f; font-size: 16px; margin-bottom: 20px; }
+.rating-count { color: #777; font-size: 14px; margin-left: 10px; }
+
+/* --- PRICE & BUTTONS --- */
+.price-group { display: flex; align-items: baseline; margin-bottom: 30px; }
+.old-price { font-size: 20px; color: #999; text-decoration: line-through; margin-right: 15px; }
+.current-price { font-size: 48px; color: #d35400; font-weight: 700; }
+.quantity-control { display: flex; border: 1px solid #ccc; border-radius: 5px; width: fit-content; }
+.quantity-control input { width: 50px; text-align: center; border: none; padding: 10px 0; font-weight: 600; }
+.quantity-control button { border: none; background: none; padding: 0 15px; cursor: pointer; }
+
+.btn-primary { background: #d35400; color: white; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: 600; display: inline-block; transition: 0.3s; }
+.btn-secondary { background: #f1c40f; color: #1a1a1a; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: 600; display: inline-block; }
+
+/* --- TABS --- */
+.product-tabs { padding: 0 120px 80px; }
+.tab-list { display: flex; border-bottom: 2px solid #eee; margin-bottom: 30px; }
+.tab-item { padding: 15px 30px; cursor: pointer; font-weight: 600; color: #555; position: relative; }
+.tab-item.active { color: #d35400; }
+.tab-item.active::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 3px; background: #d35400; }
+.tab-content { line-height: 1.8; color: #444; }
+
+/* --- FOOTER --- */
+footer { background: #2c3e50; color: white; padding: 80px 120px 40px; }
+.footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+.footer-logo-area { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.footer-img { height: 40px; background: white; border-radius: 5px; padding: 2px; }
+.footer-logo-text { font-size: 20px; font-weight: bold; font-family: 'Playfair Display', serif; }
+.footer-bottom { border-top: 1px solid #34495e; padding-top: 30px; text-align: center; color: #7f8c8d; margin-top: 60px; }
+
+/* --- SỬA LỖI LOGO BỊ TO --- */
+
+/* 1. Ép kích thước ảnh Logo trong Navbar */
+.navbar .logo img, 
+.nav-logo-img {
+    height: 50px !important;  /* Chiều cao cố định là 50px */
+    width: auto !important;   /* Chiều rộng tự động theo tỷ lệ */
+    object-fit: contain;
+    margin-right: 15px;       /* Tạo khoảng cách với chữ bên cạnh */
+}
+
+/* 2. Chỉnh lại khung chứa Logo để nó nằm thẳng hàng */
+.navbar .logo {
+    display: flex;
+    align-items: center;      /* Căn giữa theo chiều dọc */
+    overflow: hidden;         /* Ẩn phần thừa nếu có */
+    max-width: 300px;         /* Giới hạn chiều rộng khu vực logo */
+}
+
+/* 3. Sửa lỗi ảnh bìa sách (nếu cũng bị to) */
+.product-images img, 
+.main-image {
+    width: 100%;
+    max-width: 400px;         /* Giới hạn chiều rộng ảnh sách */
+    height: auto;
+    object-fit: contain;
+}
+/* --- BỔ SUNG QUAN TRỌNG: SỬA LỖI ẢNH TO & LOGO --- */
+
+/* 1. Ép kích thước Logo trong Navbar nhỏ lại */
+.navbar .logo img, 
+.nav-logo-img {
+    height: 50px !important;  /* Bắt buộc cao 50px */
+    width: auto !important;   /* Chiều rộng tự động */
+    object-fit: contain;
+}
+
+/* 2. Chỉnh ảnh bìa sách gọn gàng */
+.product-images img, 
+.main-image {
+    width: 100%;
+    max-width: 400px;         /* Ảnh sách không được rộng quá 400px */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;           /* Căn giữa ảnh */
+}
+
+/* 3. Logo dưới chân trang */
+.footer-img {
+    height: 40px !important;
+    width: auto !important;
+    background: white;
+    padding: 2px;
+    border-radius: 4px;
+}
+/* --- DÁN VÀO CUỐI FILE STYLE.CSS --- */
+
+/* 1. Ép Logo nhỏ lại (không bị vỡ layout) */
+.navbar .logo img, 
+.nav-logo-img {
+    height: 50px !important;
+    width: auto !important;
+    object-fit: contain;
+}
+
+/* 2. Ép ảnh bìa sách gọn gàng */
+.product-images img, 
+.main-image {
+    width: 100%;
+    max-width: 400px; /* Giới hạn chiều rộng */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 3. Logo nhỏ dưới chân trang */
+.footer-img {
+    height: 40px !important;
+    width: auto !important;
+    background: white;
+    padding: 2px;
+    border-radius: 4px;
+}
+/* --- CSS CHO FOOTER (CHÂN TRANG) --- */
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding-top: 60px;
+    margin-top: 50px;
+
+    /* --- THÊM 2 DÒNG NÀY ĐỂ ÉP FOOTER XUỐNG DƯỚI VÀ RỘNG RA --- */
+    width: 100%;      /* <-- Bắt buộc chân trang rộng 100% màn hình */
+    clear: both;      /* <-- Ngắt dòng, đẩy chân trang xuống dưới các thành phần khác */
+    display: block;   /* <-- Đảm bảo nó là một khối riêng biệt */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px 40px 20px;
+    gap: 30px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px; /* Đảm bảo không bị co quá nhỏ */
+}
+
+/* Logo trong footer */
+.footer-logo {
+    height: 50px;
+    margin-bottom: 20px;
+    filter: brightness(0) invert(1); /* Biến logo thành màu trắng */
+}
+
+.footer-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #bdc3c7;
+}
+
+/* Tiêu đề cột */
+.footer-col h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #e67e22; /* Gạch chân màu cam */
+}
+
+/* Danh sách link */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #e67e22; /* Màu cam khi di chuột vào */
+    padding-left: 5px;
+}
+
+.contact-info li i {
+    margin-right: 10px;
+    color: #e67e22;
+}
+
+/* Mạng xã hội */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background: #e67e22;
+    transform: translateY(-3px);
+}
+
+/* Form đăng ký tin */
+.newsletter-form {
+    display: flex;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.newsletter-form button {
+    padding: 10px 15px;
+    background: #e67e22;
+    border: none;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+/* Dòng bản quyền */
+.copyright-bar {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #95a5a6;
+    background: #243342; /* Màu đậm hơn chút */
+}
