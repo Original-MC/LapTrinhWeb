@@ -1,4 +1,4 @@
-/* --- NHÚNG FONT VÀ CƠ SỞ CSS (Đã gộp từ typography.css) --- */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { 
@@ -12,7 +12,7 @@ body {
     width: 100%;
 }
 
-/* --- GIẢ LẬP KHUNG FIGMA (ARTBOARD) --- */
+
 .figma-frame {
     width: 100%;
     max-width: 1440px;
@@ -501,7 +501,7 @@ footer {
     color: #7f8c8d;
 }
 
-/* SỬA LỖI LOGO VÀ ẢNH */
+
 .navbar .logo img {
     height: 50px !important;
     width: auto !important;

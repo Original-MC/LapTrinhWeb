@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Hiệu Sách Thành Phố Vinh</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .auth-page-body { 
+            background: #f0f2f5; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            font-family: 'Inter', sans-serif; 
+        }
+        .login-card { 
+            background: #fff; 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1); 
+            width: 100%; 
+            max-width: 380px; 
+            text-align: center; 
+        }
+        .login-card h2 { 
+            font-weight: 700; 
+            margin-bottom: 30px; 
+            position: relative; 
+            display: inline-block; 
+            color: #333; 
+        }
+        .login-card h2::after { 
+            content: ""; 
+            position: absolute; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            bottom: -8px; 
+            width: 40px; 
+            height: 3px; 
+            background: #007bff; 
+        }
+        .input-group-v3 { margin-bottom: 15px; }
+        .input-group-v3 input { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ddd; 
+            border-radius: 6px; 
+            background: #f9f9f9; 
+            outline: none; 
+            transition: 0.3s; 
+        }
+        .input-group-v3 input:focus { 
+            border-color: #007bff; 
+            background: #fff; 
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.1); 
+        }
+        .btn-login-v3 { 
+            width: 100%; 
+            padding: 12px; 
+            background: #007bff; 
+            color: #fff; 
+            border: none; 
+            border-radius: 6px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            font-size: 16px; 
+            transition: 0.3s; 
+        }
+        .btn-login-v3:hover { background: #0056b3; }
+        .login-footer-v3 { margin-top: 20px; font-size: 14px; color: #666; }
+        .login-footer-v3 a { 
+            color: #007bff; 
+            text-decoration: none; 
+            font-weight: 600; 
+            cursor: pointer; 
+        }
+    </style>
+</head>
+<body class="auth-page-body">
+    <div class="login-card">
+        <div onclick="window.location.href='index.html'" style="cursor: pointer; margin-bottom: 20px;">
+            <img src="../assets/images/logo.png" style="height: 50px;" onerror="this.src='https://scontent.fvii2-4.fna.fbcdn.net/v/t1.15752-9/589794095_1566722731129168_2339922225129972205_n.png?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=IQ0feMSu5bQQ7kNvwG6TPD9&_nc_oc=Adl-cbwna_vKOCac38ziiQENKuV7WC4aqVVWAfQAlGlly0k9mI6FvU6y8nAyCess7KM&_nc_zt=23&_nc_ht=scontent.fvii2-4.fna&oh=03_Q7cD4AF6qpOs-xMc1cz4VuCkC-wPcPaHyNUmcHHsPBkIz1enpg&oe=695E332C';">
+        </div>
+
+        <h2 id="auth-title-v3">Đăng nhập</h2>
+        
+        <div id="form-login-v3">
+            <div class="input-group-v3">
+                <input type="text" id="login-user" placeholder="Tên đăng nhập">
+            </div>
+            <div class="input-group-v3">
+                <input type="password" id="login-pass" placeholder="Mật khẩu">
+            </div>
+            <button type="button" class="btn-login-v3" id="btn-submit-v3">Đăng nhập</button>
+            <div class="login-footer-v3">
+                Chưa có tài khoản? <a id="btn-go-reg">Đăng ký ngay</a>
+            </div>
+        </div>
+
+        <div id="form-reg-v3" style="display: none;">
+            <div class="input-group-v3">
+                <input type="text" placeholder="Email đăng ký">
+            </div>
+            <div class="input-group-v3">
+                <input type="password" placeholder="Mật khẩu mới">
+            </div>
+            <button type="button" class="btn-login-v3" onclick="alert('Đăng ký thành công!'); location.reload();">Tạo tài khoản</button>
+            <div class="login-footer-v3">
+                Đã có tài khoản? <a id="btn-go-log">Quay lại đăng nhập</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnSubmit = document.getElementById('btn-submit-v3');
+            const userInp = document.getElementById('login-user');
+            
+            if (btnSubmit) {
+                btnSubmit.onclick = function() {
+                    if (userInp.value.trim() === "") {
+                        alert("Vui lòng nhập tên đăng nhập!");
+                        return;
+                    }
+
+                    alert('Đăng nhập thành công! Hệ thống đang đưa bạn về Trang chủ.');
+                    window.location.href = 'index.html';
+                };
+            }
+
+            const btnReg = document.getElementById('btn-go-reg');
+            const btnLog = document.getElementById('btn-go-log');
+
+            if (btnReg) {
+                btnReg.onclick = function(e) {
+                    e.preventDefault();
+                    document.getElementById('form-login-v3').style.display = 'none';
+                    document.getElementById('form-reg-v3').style.display = 'block';
+                    document.getElementById('auth-title-v3').innerText = 'Đăng ký';
+                };
+            }
+
+            if (btnLog) {
+                btnLog.onclick = function(e) {
+                    e.preventDefault();
+                    document.getElementById('form-reg-v3').style.display = 'none';
+                    document.getElementById('form-login-v3').style.display = 'block';
+                    document.getElementById('auth-title-v3').innerText = 'Đăng nhập';
+                };
+            }
+        });
+    </script>
+</body>
+</html>
