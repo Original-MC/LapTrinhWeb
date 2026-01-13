@@ -1,0 +1,138 @@
+
+let cartItems = [
+    {
+        id: 1,
+        image: "https://via.placeholder.com/60x90?text=Sách+1",
+        name: "Đắc Nhân Tâm",
+        author: "Dale Carnegie",
+        price: 95000,
+        quantity: 1
+    },
+    {
+        id: 2,
+        image: "https://via.placeholder.com/60x90?text=Sách+2",
+        name: "Nhà Giả Kim",
+        author: "Paulo Coelho",
+        price: 80000,
+        quantity: 2
+    },
+    {
+        id: 3,
+        image: "https://via.placeholder.com/60x90?text=Sách+3",
+        name: "Cà Phê Cùng Tony",
+        author: "Tony Buổi Sáng",
+        price: 75000,
+        quantity: 1
+    }
+];
+
+const cartTable = document.querySelector('.cart-table');
+const emptyCartMessage = document.querySelector('.empty-cart');
+const summaryTotalGoodsSpan = document.querySelector('.order-summary .summary-row:nth-child(2) span:last-child');
+const summaryTotalPriceSpan = document.querySelector('.order-summary .total span:last-child');
+const summaryDiscountSpan = document.querySelector('.order-summary .summary-row:nth-child(3) span:last-child');
+const summaryShippingSpan = document.querySelector('.order-summary .summary-row:nth-child(4) span:last-child');
+
+
+function formatCurrency(amount) {
+    return amount.toLocaleString('vi-VN') + ' ₫';
+}
+
+
+function calculateTotals() {
+    let totalGoods = 0;
+    cartItems.forEach(item => {
+        totalGoods += item.price * item.quantity;
+    });
+
+    const discount = 10000;
+    const shippingFee = 20000;
+
+    const totalPrice = totalGoods - discount + shippingFee;
+    summaryTotalGoodsSpan.textContent = formatCurrency(totalGoods);
+    summaryDiscountSpan.textContent = formatCurrency(discount);
+    summaryShippingSpan.textContent = formatCurrency(shippingFee);
+    summaryTotalPriceSpan.textContent = formatCurrency(totalPrice);
+}
+
+function renderCart() {
+    const existingItems = cartTable.querySelectorAll('.cart-item');
+    existingItems.forEach(item => item.remove());
+
+    if (cartItems.length === 0) {
+        emptyCartMessage.style.display = 'block';
+    } else {
+        emptyCartMessage.style.display = 'none';
+        
+        cartItems.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('cart-item');
+            itemElement.style.cssText = 'display:grid; grid-template-columns: 2fr 3fr 1fr 1fr; padding:15px 20px; border-bottom:1px solid #eee; align-items:center;';
+
+            itemElement.innerHTML = `
+                <div style="display:flex; align-items:center;">
+                    <img src="${item.image}" alt="${item.name}" style="width:60px; height:90px; object-fit:cover; margin-right:15px;">
+                    <button class="remove-item" data-id="${item.id}" style="background:none; border:none; color:red; cursor:pointer;"><i class="fa-solid fa-trash"></i></button>
+                </div>
+                <div>
+                    <div style="font-weight:600; margin-bottom:5px;">${item.name}</div>
+                    <div style="font-size:13px; color:#777;">Tác giả: ${item.author}</div>
+                </div>
+                <div style="display:flex; align-items:center; justify-content:center;">
+                    <input type="number" value="${item.quantity}" min="1" data-id="${item.id}" class="item-quantity" style="width:50px; text-align:center; padding:5px; border:1px solid #ddd; border-radius:4px;">
+                </div>
+                <div style="font-weight:600; color:#c0392b; text-align:right;">${formatCurrency(item.price * item.quantity)}</div>
+            `;
+            
+            cartTable.appendChild(itemElement);
+        });
+
+        attachEventListeners();
+    }
+    
+    calculateTotals();
+}
+
+function handleQuantityChange(event) {
+    const input = event.target;
+    const itemId = parseInt(input.getAttribute('data-id'));
+    const newQuantity = parseInt(input.value);
+
+    if (newQuantity < 1 || isNaN(newQuantity)) {
+        input.value = 1;
+        return;
+    }
+
+    const itemIndex = cartItems.findIndex(item => item.id === itemId);
+    if (itemIndex > -1) {
+        cartItems[itemIndex].quantity = newQuantity;
+        renderCart();
+    }
+}
+
+function handleRemoveItem(event) {
+    const button = event.target.closest('.remove-item');
+    if (!button) return;
+
+    const itemId = parseInt(button.getAttribute('data-id'));
+    cartItems = cartItems.filter(item => item.id !== itemId);
+    
+    renderCart();
+}
+
+function attachEventListeners() {
+
+    const quantityInputs = cartTable.querySelectorAll('.item-quantity');
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', handleQuantityChange);
+    });
+
+    const removeButtons = cartTable.querySelectorAll('.remove-item');
+    removeButtons.forEach(button => {
+        button.addEventListener('click', handleRemoveItem);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderCart();
+});
