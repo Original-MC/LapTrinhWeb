@@ -9,25 +9,29 @@
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">
-            <img src="logohs.png" alt="Hiệu Sách Thành Phố Vinh Logo">
-            <span>Hiệu Sách Thành Phố Vinh</span>
-        </div>
-        <nav class="nav-links">
-            <a href="#">Trang chủ</a>
-            <a href="#">Danh Mục</a>
-            <a href="#">Chi Tiết Sách</a>
-            <a href="#">Đơn Hàng</a>
-        </nav>
-        <div class="navbar-actions">
-            <div class="search-box">
-                <input type="text" placeholder="Tìm kiếm sách, vật phẩm...">
-                <i class="fas fa-search"></i>
+    <header class="header">
+        <div class="container nav-bar">
+            <div class="logo">
+                <img src="logohs.png" alt="logohs.png" class="logo-img">
+                <span>Hiệu Sách Thành Phố Vinh</span>
             </div>
-            <a href="#"><i class="far fa-heart"></i></a>
-            <a href="#"><i class="fas fa-shopping-bag"></i></a>
-            <a href="#"><i class="fas fa-user-circle"></i></a>
+            <nav class="main-nav">
+                <a href="#">Trang chủ</a>
+                <a href="#">Danh Mục</a>
+                <a href="#">Chi Tiết Sách</a>
+                <a href="#">Đơn Hàng</a>
+            </nav>
+            <div class="search-actions">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Tìm tên sách, tác giả...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="actions">
+                    <a href="#"><i class="fa-solid fa-heart"></i></a>
+                    <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -65,7 +69,7 @@
             </div>
             <div class="product-item">
                 <div class="product-image-container">
-                    <img src="sach-ngu-phap-tieng-phap.jpg" alt="Ngữ pháp Tiếng Pháp cho người mới học">
+                    <img src="sách ngoại ngữ tiếng pháp.jpg" alt="Ngữ pháp Tiếng Pháp cho người mới học">
                 </div>
                 <div class="product-info">
                     <p class="product-name">Ngữ pháp Tiếng Pháp cho người mới học</p>
@@ -94,7 +98,7 @@
 
             <div class="product-item">
                 <div class="product-image-container">
-                    <img src="sach-tu-hoc-tieng-trung-cho-nguoi-moi-bat-dau.jpg" alt="Tự Học Tiếng Trung Cho Người Mới Bắt Đầu">
+                    <img src="tự học tiếng trung cho người mới bắt đầu.jpg" alt="Tự Học Tiếng Trung Cho Người Mới Bắt Đầu">
                 </div>
                 <div class="product-info">
                     <p class="product-name">Tự Học Tiếng Trung Cho Người Mới Bắt Đầu</p>
@@ -132,36 +136,56 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-logo">
-            <img src="logohs.png" alt="Logo Footer">
-            <p>Hiệu Sách<br>Thành Phố Vinh</p>
-        </div>
-        <div class="footer-section">
-            <h4>Về chúng tôi</h4>
-            <ul>
-                <li><a href="#">Giới thiệu</a></li>
-                <li><a href="#">Hệ thống cửa hàng</a></li>
-                <li><a href="#">Tuyển dụng</a></li>
-                <li><a href="#">Liên hệ</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>Chính sách</h4>
-            <ul>
-                <li><a href="#">Chính sách đổi trả</a></li>
-                <li><a href="#">Chính sách bảo mật</a></li>
-                <li><a href="#">Điều khoản sử dụng</a></li>
-                <li><a href="#">Liên hệ</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>Hỗ Trợ</h4>
-            <p>Hotline: 0900 2367</p>
-            <p>Email: <a href="mailto:support@sachvinh.vn">support@sachvinh.vn</a></p>
-            <p><a href="#">Tra cứu đơn hàng</a></p>
-        </div>
-    </footer>
+    <footer>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                        <img src="logohs.png" style="height: 40px; background: white; border-radius: 5px; padding: 2px;" onerror="this.onerror=null;" alt="Logo">
+                        <span style="font-size: 20px; font-weight: bold; font-family: 'Playfair Display', serif;">Hiệu Sách TP Vinh</span>
+                    </div>
+                    <p style="color: #bdc3c7; line-height: 1.6;">
+                        Nơi lan tỏa tri thức và văn hóa đọc đến mọi người dân thành phố Vinh. Chúng tôi cam kết cung cấp sách thật, giá trị thật.
+                    </p>
+                    <div style="margin-top: 20px; display: flex; gap: 15px;">
+                        <i class="fab fa-facebook fa-lg"></i>
+                        <i class="fab fa-instagram fa-lg"></i>
+                        <i class="fab fa-tiktok fa-lg"></i>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Về Chúng Tôi</h3>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Hệ thống cửa hàng</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Chính Sách</h3>
+                    <ul>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Giao hàng & Thanh toán</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Hỗ Trợ</h3>
+                    <ul>
+                        <li><a href="#">Hotline: 1900 2567</a></li>
+                        <li><a href="#">Email: support@sachvinh.vn</a></li>
+                        <li><a href="#">Tra cứu đơn hàng</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Hiệu Sách Thành Phố Vinh. All rights reserved. Design Mockup.
+            </div>
+        </footer>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="javascript.js"></script>
 </body>
 </html>
