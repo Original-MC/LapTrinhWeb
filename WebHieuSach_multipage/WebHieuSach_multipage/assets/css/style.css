@@ -1,0 +1,516 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: #F2F2F2; 
+    color: #1a1a1a; 
+    display: flex; 
+    justify-content: center; 
+    padding-top: 20px; 
+    padding-bottom: 20px; 
+    width: 100%;
+}
+
+
+.figma-frame {
+    width: 100%;
+    max-width: 1440px;
+    min-height: 100vh;
+    height: auto;
+    background: #ffffff;
+    box-shadow: 0 0 50px rgba(0,0,0,0.1);
+    position: relative;
+    margin: 0 auto;
+}
+
+/* --- HEADER / NAVBAR --- */
+.navbar {
+    width: 100%;
+    height: 100px;
+    background: white;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.navbar .logo img {
+    height: 60px;
+    object-fit: contain;
+}
+
+.navbar .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #2c3e50;
+    line-height: 1.2;
+}
+
+.menu {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+    cursor: pointer;
+    padding-bottom: 5px;
+}
+
+.menu a:hover, .menu a.active {
+    color: #d35400;
+}
+
+.menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #d35400;
+}
+
+/* Search Box Design */
+.search-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid #e0e0e0;
+    width: 300px;
+}
+
+.search-box i {
+    color: #888;
+    margin-right: 10px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+}
+.nav-icons i {
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* --- HERO BANNER (Trang Chủ) --- */
+.banner {
+    width: 100%;
+    height: 560px;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('https://images.unsplash.com/photo-1495446815901-a7297e633e8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1440&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 120px;
+    color: white;
+}
+
+.banner h2 {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #f1c40f;
+}
+
+.banner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    max-width: 600px;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #d35400;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    width: fit-content;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    background: #e67e22;
+    transform: translateY(-2px);
+}
+
+/* --- LAYOUT CHUNG CHO CÁC SECTION --- */
+.container {
+    padding: 80px 120px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #2c3e50;
+    position: relative;
+    padding-left: 20px;
+}
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    height: 35px;
+    width: 4px;
+    background: #d35400;
+}
+
+.view-all {
+    color: #d35400;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* --- CATEGORIES --- */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.category-card {
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+}
+
+.category-overlay span {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* --- BOOK GRID --- */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px 30px;
+}
+
+.book-card {
+    background: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.book-card:hover .book-cover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+.book-cover {
+    width: 100%;
+    height: 320px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    position: relative;
+    transition: 0.3s;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-author {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.book-price {
+    font-size: 18px;
+    color: #d35400;
+    font-weight: 700;
+}
+
+/* --- KHỐI QUẢNG CÁO GIỮA TRANG (PROMO) --- */
+.promo-section {
+    width: 100%;
+    height: 400px;
+    background-color: #fdf2e9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 120px;
+    margin: 60px 0;
+}
+.promo-content {
+    max-width: 50%;
+}
+.promo-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+.promo-image img {
+    height: 350px;
+    box-shadow: -20px 20px 0 #e67e22;
+    border-radius: 10px;
+}
+
+/* --- TIN TỨC / BLOG --- */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.blog-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.blog-date {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+.blog-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* --- SÁCH GIÁO KHOA --- */
+.extended-content-section {
+    padding: 80px 120px;
+    background: #ffffff;
+}
+
+.school-section-banner {
+    width: 100%;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    background-image: url('https://cdn.baoquocte.vn/stores/news_dataimages/nguyenhong/052020/31/11/dung-quen-ghe-tham-7-hieu-sach-tuyet-voi-tren-toan-the-gioi_8.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.school-section-banner-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    padding: 40px;
+}
+.school-section-banner-overlay h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+/* --- STYLE TRANG CHI TIẾT (ĐÃ GỘP TỪ style3.css) --- */
+
+.breadcrumb { padding: 20px 120px 0; font-size: 14px; color: #777; }
+.breadcrumb a { text-decoration: none; color: #555; }
+.product-detail-container { padding: 40px 120px 80px; display: flex; gap: 60px; }
+.main-image { width: 100%; height: 500px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.category-highlight { color: #d35400; font-weight: 600; margin-bottom: 5px; }
+.product-info h1 { font-family: 'Playfair Display', serif; font-size: 38px; color: #2c3e50; margin-bottom: 10px; }
+.author { font-size: 18px; color: #d35400; font-weight: 500; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+.rating-stars { color: #f1c40f; font-size: 16px; margin-bottom: 20px; }
+.rating-count { color: #777; font-size: 14px; margin-left: 10px; }
+
+/* PRICE & BUTTONS (Đã gộp) */
+.price-group { display: flex; align-items: baseline; margin-bottom: 30px; }
+.old-price { font-size: 20px; color: #999; text-decoration: line-through; margin-right: 15px; }
+.current-price { font-size: 48px; color: #d35400; font-weight: 700; }
+.quantity-control { display: flex; border: 1px solid #ccc; border-radius: 5px; width: fit-content; }
+.quantity-control input { width: 50px; text-align: center; border: none; padding: 10px 0; font-weight: 600; }
+.quantity-control button { border: none; background: none; padding: 0 15px; cursor: pointer; }
+
+/* TABS (Đã gộp) */
+.product-tabs { padding: 0 120px 80px; }
+.tab-list { display: flex; border-bottom: 2px solid #eee; margin-bottom: 30px; }
+.tab-item { padding: 15px 30px; cursor: pointer; font-weight: 600; color: #555; position: relative; }
+.tab-item.active { color: #d35400; }
+.tab-item.active::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 3px; background: #d35400; }
+.tab-content { line-height: 1.8; color: #444; }
+
+/* TABLES (Đã gộp) */
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.specs-table td {
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+}
+.specs-table td:first-child {
+    width: 30%;
+    color: #777;
+}
+.specs-table td:last-child {
+    font-weight: 600;
+    color: #333;
+}
+
+
+/* --- FOOTER (Đã gộp và sửa lỗi) --- */
+footer {
+    background: #2c3e50;
+    color: white;
+    padding: 80px 120px 40px;
+    margin-top: auto;
+    width: 100%;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-col h3 {
+    font-size: 18px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+.footer-col ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.footer-col ul li a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid #34495e;
+    padding-top: 30px;
+    text-align: center;
+    color: #7f8c8d;
+}
+
+
+.navbar .logo img {
+    height: 50px !important;
+    width: auto !important;
+}
+
+.product-images img, 
+.main-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+}
