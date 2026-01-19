@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giỏ Hàng Của Tôi - Hiệu Sách Thành Phố Vinh</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="cart.css"/>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">
+    <img src="https://via.placeholder.com/48x48/228B22/FFFFFF?text=S" alt="Logo"/>
+    <span>Hiệu Sách<br>Thành Phố Vinh</span>
+  </div>
+
+  <nav class="main-nav">
+    <a href="#">Trang chủ</a>
+    <a href="#">Danh mục</a>
+    <a href="#">Chi tiết sách</a>
+    <a href="#">Đơn hàng</a>
+  </nav>
+
+  <div class="header-right">
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm sách yêu thích..."/>
+      <i class="fas fa-search"></i>
+    </div>
+    <div class="icons">
+      <i class="far fa-heart"></i>
+      <i class="fas fa-shopping-cart active"></i>
+      <i class="far fa-user"></i>
+    </div>
+  </div>
+</header>
+
+<main class="cart-container">
+  <h1>Giỏ Hàng Của Tôi</h1>
+
+  <!-- Thông tin khách hàng -->
+  <div class="customer-info">
+    <div class="form-row">
+      <label>Họ Và Tên Khách Hàng:</label>
+      <input type="text" id="fullName" placeholder="Nhập họ và tên..."/>
+    </div>
+    <div class="form-row">
+      <label>Số Điện Thoại:</label>
+      <input type="tel" id="phone" placeholder="Nhập số điện thoại..."/>
+    </div>
+    <div class="form-row">
+      <label>Địa Chỉ Nhận Hàng:</label>
+      <input type="text" id="address" placeholder="Nhập địa chỉ giao hàng..."/>
+    </div>
+  </div>
+
+  <!-- Giỏ hàng + Tóm tắt -->
+  <div class="cart-content">
+    <div class="cart-table-section">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Hình ảnh</th>
+            <th>Thông tin</th>
+            <th>Số lượng</th>
+            <th>Giá tiền</th>
+          </tr>
+        </thead>
+        <tbody id="cartItemsBody">
+          <!-- JS render ở đây -->
+        </tbody>
+      </table>
+
+      <!-- Trạng thái giỏ trống -->
+      <div id="emptyCart" class="empty-cart" style="display:none;">
+        <div class="empty-icon">🛍️</div>
+        <p>Giỏ hàng đang trống</p>
+      </div>
+    </div>
+
+    <div class="order-summary">
+      <h3>Tóm Tắt Đơn Hàng</h3>
+      <div class="summary-row">
+        <span>Tổng tiền hàng:</span>
+        <strong id="subTotal">0 ₫</strong>
+      </div>
+      <div class="summary-row">
+        <span>Giảm giá:</span>
+        <strong id="discount">0 ₫</strong>
+      </div>
+      <div class="summary-row">
+        <span>Phí giao hàng:</span>
+        <strong id="shipping">0 ₫</strong>
+      </div>
+      <div class="summary-total">
+        <span>Tổng cộng:</span>
+        <strong id="grandTotal">0 ₫</strong>
+      </div>
+
+      <button class="btn-place-order" onclick="placeOrder()">Đặt Hàng</button>
+      <button class="btn-continue" onclick="window.location.href='index.html'">Mua Thêm Sản Phẩm</button>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="https://via.placeholder.com/48x48/228B22/FFFFFF?text=S" alt="Logo"/>
+        <span>Hiệu Sách TP Vinh</span>
+      </div>
+      <p>Nơi bạn thỏa sức vùi đầu vào những cuốn sách hay nhất, mới nhất ngay tại thành phố Vinh. Chúng tôi luôn cập nhật các đầu sách mới nhất, giá tốt nhất.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Về Chúng Tôi</h4>
+      <ul>
+        <li>Giới thiệu</li>
+        <li>Hệ thống cửa hàng</li>
+        <li>Tuyển dụng</li>
+        <li>Liên hệ</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Chính Sách</h4>
+      <ul>
+        <li>Chính sách đổi trả</li>
+        <li>Chính sách bảo mật</li>
+        <li>Điều khoản dịch vụ</li>
+        <li>Giao hàng & Thanh toán</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Hỗ Trợ</h4>
+      <ul>
+        <li>Hotline: 1900 2657</li>
+        <li>Email: support@hieusachvinh.vn</li>
+        <li>Tra cứu đơn hàng</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Hiệu Sách Thành Phố Vinh. All rights reserved.
+  </div>
+</footer>
+
+<script src="cart.js"></script>
+</body>
+</html>
